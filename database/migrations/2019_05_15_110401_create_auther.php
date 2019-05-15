@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomers extends Migration
+class CreateAuther extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateCustomers extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name',150);
+            $table->string('back_account',50);
+            $table->string('back_name',150);
             $table->timestamps();
-            $table->softDeletes();
-            $table->string('name')->nullable();
-            $table->string('address')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('phone_other')->nullable();
         });
     }
 
@@ -31,6 +29,6 @@ class CreateCustomers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('authors');
     }
 }

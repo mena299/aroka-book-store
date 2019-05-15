@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSkuToProducts extends Migration
+class CreatePenName extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddSkuToProducts extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('sku',25)->nullable();
+        Schema::create('pen_names', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('pen_name', 250);
         });
     }
 
@@ -25,9 +26,6 @@ class AddSkuToProducts extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-            $table->dropColumn('sku');
-        });
+        Schema::dropIfExists('pen_names');
     }
 }

@@ -2011,42 +2011,42 @@ DB::table('migrations')->insert(array (
     'migration' => '2017_03_17_072724_create_brands',
     'batch' => 3,
   ),
-  27 => 
-  array (
-    'id' => 31,
-    'migration' => '2017_03_17_085044_create_orders',
-    'batch' => 3,
-  ),
-  28 => 
-  array (
-    'id' => 33,
-    'migration' => '2017_03_17_085104_create_orders_detail',
-    'batch' => 4,
-  ),
-  29 => 
-  array (
-    'id' => 34,
-    'migration' => '2017_03_17_103826_craete_products_stock',
-    'batch' => 5,
-  ),
-  30 => 
-  array (
-    'id' => 35,
-    'migration' => '2017_03_17_134426_add_brands_id_to_products',
-    'batch' => 6,
-  ),
-  31 => 
-  array (
-    'id' => 37,
-    'migration' => '2017_03_17_134848_add_sku_to_products',
-    'batch' => 7,
-  ),
-  32 => 
-  array (
-    'id' => 39,
-    'migration' => '2017_03_17_145653_add_sku_to_orders_detail',
-    'batch' => 8,
-  ),
+//  27 =>
+//  array (
+//    'id' => 31,
+//    'migration' => '2017_03_17_085044_create_orders',
+//    'batch' => 3,
+//  ),
+//  28 =>
+//  array (
+//    'id' => 33,
+//    'migration' => '2017_03_17_085104_create_orders_detail',
+//    'batch' => 4,
+//  ),
+//  29 =>
+//  array (
+//    'id' => 34,
+//    'migration' => '2017_03_17_103826_craete_products_stock',
+//    'batch' => 5,
+//  ),
+//  30 =>
+//  array (
+//    'id' => 35,
+//    'migration' => '2017_03_17_134426_add_brands_id_to_products',
+//    'batch' => 6,
+//  ),
+//  31 =>
+//  array (
+//    'id' => 37,
+//    'migration' => '2017_03_17_134848_add_sku_to_products',
+//    'batch' => 7,
+//  ),
+//  32 =>
+//  array (
+//    'id' => 39,
+//    'migration' => '2017_03_17_145653_add_sku_to_orders_detail',
+//    'batch' => 8,
+//  ),
 ));
 DB::table('orders')->insert(array (
   0 => 
@@ -2184,4 +2184,3 @@ DB::table('suppliers')->insert(array (
 
     }
 }
-	

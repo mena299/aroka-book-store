@@ -14,18 +14,20 @@ class CreateProducts extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
+            $table->string('sku',50);
+            $table->string('title_th');
+            $table->string('title_en');
+            $table->text('content');
+            $table->integer('stock');
+            $table->unsignedInteger('pen_name_id');
+            $table->foreign('pen_name_id')
+                ->references('id')
+                ->on('pen_names');
+            $table->decimal('cost',12,2);
+            $table->decimal('register',6,2);
+            $table->decimal('ems',6,2);
             $table->timestamps();
-            $table->softDeletes();
-            $table->integer('categories_id')->nullable();
-            $table->integer('suppliers_id')->nullable();
-            $table->string('name')->nullable();
-            $table->text('description')->nullable();
-            $table->double('weight')->default(0);
-            $table->double('buy_price');
-            $table->double('sell_price');
-            $table->integer('stock')->default(0);
-
         });
     }
 
