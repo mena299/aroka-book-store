@@ -23,6 +23,7 @@ return array(
     'AddTableCmsPrivilegesRoles' => $baseDir . '/database/migrations/2016_08_07_152214_add_table_cms_privileges_roles.php',
     'AddTableCmsSettings' => $baseDir . '/database/migrations/2016_08_07_152320_add_table_cms_settings.php',
     'AddTableCmsUsers' => $baseDir . '/database/migrations/2016_08_07_152421_add_table_cms_users.php',
+    'AddUsernameCmsUsersTable' => $baseDir . '/database/migrations/2019_05_17_113928_add_username_cms_users_table.php',
     'CmsEmailTemplates' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'Cms_modulsSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'Cms_privilegesSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

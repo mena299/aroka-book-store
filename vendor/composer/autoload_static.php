@@ -465,6 +465,7 @@ class ComposerStaticInitc06223657e1a15cb38e00306c0a28ad9
         'AddTableCmsPrivilegesRoles' => __DIR__ . '/../..' . '/database/migrations/2016_08_07_152214_add_table_cms_privileges_roles.php',
         'AddTableCmsSettings' => __DIR__ . '/../..' . '/database/migrations/2016_08_07_152320_add_table_cms_settings.php',
         'AddTableCmsUsers' => __DIR__ . '/../..' . '/database/migrations/2016_08_07_152421_add_table_cms_users.php',
+        'AddUsernameCmsUsersTable' => __DIR__ . '/../..' . '/database/migrations/2019_05_17_113928_add_username_cms_users_table.php',
         'CmsEmailTemplates' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'Cms_modulsSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'Cms_privilegesSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e68e5ac-2f8c-4ed1-97de-f03f931f1095" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_15_132102_create_products.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_15_132102_create_products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_17_113928_add_username_cms_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_17_113928_add_username_cms_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/uploads" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/vendor/crudbooster" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/crudbooster" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/bin/phpunit" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/bin/phpunit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/bin/var-dump-server" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/bin/var-dump-server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/views/login.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +26,9 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <leaf>
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-05-15.log">
+              <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-05-17.log">
                 <provider selected="true" editor-type-id="text-editor" />
               </entry>
             </file>
@@ -35,91 +40,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_134525_create_log_product_stock.php">
+        <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_135859_create_order_products.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_142352_create_product_account.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_142729_create_bank_account.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_125810_create_orders.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-            </state>
+            <state relative-caret-position="-991" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_132102_create_products.php">
+        <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+            <state relative-caret-position="153">
+              <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_125429_create_customeres.php">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+            <state relative-caret-position="51">
+              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_113728_create_author_account.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_110944_create_pen_name.php">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
-              <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+              <caret line="122" column="25" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_111708_create_auther_pen_name.php">
+        <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/configs/crudbooster.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/views/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+            <state relative-caret-position="748">
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_17_113928_add_username_cms_users_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="20" column="78" selection-start-line="20" selection-start-column="78" selection-end-line="20" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -135,6 +107,12 @@
       <find>2017_03_17_085044_create_orders</find>
       <find>ClassLoader</find>
       <find>CreateOrders</find>
+      <find>email</find>
+      <find>Sim</find>
+      <find>Simple Sto</find>
+      <find>debug</find>
+      <find>e</find>
+      <find>APP_LOG</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -169,6 +147,11 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_05_15_125810_create_orders.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2019-05-15.log" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_15_132102_create_products.php" />
+        <option value="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/views/login.blade.php" />
+        <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_05_17_113928_add_username_cms_users_table.php" />
+        <option value="$PROJECT_DIR$/storage/logs/laravel-2019-05-17.log" />
+        <option value="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/controllers/AdminController.php" />
       </list>
     </option>
   </component>
@@ -276,9 +259,9 @@
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="1836" />
-    <option name="y" value="1" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2002" />
+    <option name="y" value="4" />
     <option name="width" value="1382" />
     <option name="height" value="1060" />
   </component>
@@ -287,6 +270,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,6 +282,11 @@
               <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
               <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
@@ -320,11 +309,92 @@
               <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
               <item name="storage" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="configs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="localization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="localization" type="462c0819:PsiDirectoryNode" />
+              <item name="en" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="crocodicstudio" type="462c0819:PsiDirectoryNode" />
+              <item name="crudbooster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="emails" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -366,17 +436,18 @@
       <workItem from="1557301042047" duration="4947000" />
       <workItem from="1557915969119" duration="12828000" />
       <workItem from="1558066009185" duration="669000" />
+      <workItem from="1558068716566" duration="4086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19860000" />
+    <option name="totallyTimeSpent" value="23946000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1836" y="1" width="1382" height="1060" extended-state="0" />
+    <frame x="2002" y="4" width="1382" height="1060" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -417,13 +488,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_105803_remove_unuse_table.php" />
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_110401_create_auther.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -436,13 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="2113" column="14" selection-start-line="2113" selection-start-column="14" selection-end-line="2113" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -505,6 +562,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_125810_create_orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_125429_create_customeres.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -533,20 +597,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-05-15.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_125810_create_orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_15_132102_create_products.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-991" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/localization/en/crudbooster.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="1637" column="39" selection-start-line="1637" selection-start-column="18" selection-end-line="1637" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/configs/crudbooster.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-05-15.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="122" column="25" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_17_113928_add_username_cms_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="78" selection-start-line="20" selection-start-column="78" selection-end-line="20" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/views/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-05-17.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
         </state>
       </provider>
     </entry>
