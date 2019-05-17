@@ -24,6 +24,7 @@ class CreateProducts extends Migration
             $table->foreign('pen_name_id')
                 ->references('id')
                 ->on('pen_names');
+            $table->enum('preorder_status',['Y','N'])->default('N');
             $table->decimal('cost',12,2);
             $table->decimal('register',6,2);
             $table->decimal('ems',6,2);
