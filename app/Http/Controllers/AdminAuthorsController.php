@@ -7,6 +7,11 @@
 
 	class AdminAuthorsController extends \crocodicstudio\crudbooster\controllers\CBController {
 
+	    public function getAdd(){
+            $data['page_title'] = "Add New Author";
+            $this->cbView('admin.authors.add_author',$data);
+        }
+
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE

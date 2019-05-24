@@ -1635,7 +1635,7 @@ DB::table('cms_settings')->insert(array (
     'created_at' => '2017-03-17 05:49:12',
     'updated_at' => NULL,
     'name' => 'appname',
-    'content' => 'Simple Stock Manager',
+    'content' => ' Manager',
     'content_input_type' => 'text',
     'dataenum' => NULL,
     'helper' => NULL,
