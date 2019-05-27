@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-	use Session;
+	use App\Model\Admin\PenName;
+    use Session;
 	use Request;
 	use DB;
 	use CRUDBooster;
@@ -9,6 +10,7 @@
 
 	    public function getAdd(){
             $data['page_title'] = "Add New Author";
+            $data['pen_name'] = PenName::get()->pluck('pen_name','id');
             $this->cbView('admin.authors.add_author',$data);
         }
 

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e68e5ac-2f8c-4ed1-97de-f03f931f1095" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminAuthorsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminAuthorsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/uploads" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/vendor/crudbooster" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendor/crudbooster" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/authors/add_author.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/authors/add_author.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +38,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminAuthorsController.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
             <state relative-caret-position="425">
               <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
             </state>
@@ -54,8 +61,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_27_032851_add_column_shipping_fee_order_table.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="556">
+              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
             <state relative-caret-position="323">
               <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/Admin/PenName.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -104,6 +122,7 @@
       <find>Controller / Rou</find>
       <find>controller_route_404</find>
       <find>Simple Stock</find>
+      <find>admin_template</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -143,9 +162,10 @@
         <option value="$PROJECT_DIR$/vendor/crocodicstudio/crudbooster/src/helpers/CRUDBooster.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2019-05-17.log" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminCmsUsersController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminAuthorsController.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/app/Model/Admin/PenName.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminAuthorsController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/authors/add_author.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_27_032851_add_column_shipping_fee_order_table.php" />
       </list>
@@ -260,8 +280,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1935" />
-    <option name="y" value="12" />
+    <option name="x" value="1840" />
+    <option name="y" value="29" />
     <option name="width" value="1382" />
     <option name="height" value="1060" />
   </component>
@@ -270,7 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,18 +325,21 @@
             <path>
               <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
               <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aroka-book-store" type="b2602c69:ProjectViewProjectNode" />
               <item name="aroka-book-store" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -363,16 +385,21 @@
       <workItem from="1558066009185" duration="669000" />
       <workItem from="1558068716566" duration="6713000" />
       <workItem from="1558511349400" duration="10069000" />
+      <workItem from="1558685147450" duration="6964000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="43606000" />
     <option name="totallyTimeSpent" value="36907000" />
   </component>
   <component name="ToolWindowManager">
+    <frame x="1283" y="123" width="1382" height="1060" extended-state="0" />
     <frame x="1840" y="29" width="1382" height="1060" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49730313" visible="true" weight="0.2685325" />
+      <window_info id="Structure" order="1" sideWeight="0.5026969" side_tool="true" visible="true" weight="0.2685325" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49622437" visible="true" weight="0.27231467" />
       <window_info id="Structure" order="1" sideWeight="0.5037756" side_tool="true" visible="true" weight="0.27231467" />
       <window_info id="npm" order="2" side_tool="true" />
@@ -652,8 +679,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-855" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/crudbooster.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="139" column="25" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Admin/PenName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminAuthorsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/authors/add_author.blade.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
         <state relative-caret-position="340">
           <caret line="15" column="200" lean-forward="true" selection-start-line="15" selection-start-column="200" selection-end-line="15" selection-end-column="200" />
         </state>
