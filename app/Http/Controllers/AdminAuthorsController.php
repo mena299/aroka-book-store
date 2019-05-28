@@ -11,6 +11,8 @@
 	    public function getAdd(){
             $data['page_title'] = "Add New Author";
             $data['pen_name'] = PenName::get()->pluck('pen_name','id');
+            $this->load_js[] = asset(public_path()."/js/select2-2.min.js");
+            $this->load_js[] = asset(public_path()."/css/select2-2.min.css");
             $this->cbView('admin.authors.add_author',$data);
         }
 

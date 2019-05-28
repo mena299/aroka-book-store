@@ -32,7 +32,7 @@
             <div class="form-group">
                 {!! Form::label("pen_name", "Pen Name", ['class' => 'col-sm-3 control-label','for'=>'pen_name']) !!}
                 <div class="col-sm-6">
-                    {!! Form::select('pen_names[]',$pen_name, null, ['class' => 'form-control','id' => 'pen_name',"multiple"=>true]) !!}
+                    {!! Form::select('pen_names[]',$pen_name, array(), ['class' => 'form-control select2-selection--multiple','id' => 'pen_name',"multiple"=>true]) !!}
                 </div>
             </div>
 
@@ -50,4 +50,3 @@
 
 
 @endsection
-
