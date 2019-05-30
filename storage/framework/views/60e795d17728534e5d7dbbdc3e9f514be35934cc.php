@@ -1,1 +1,0 @@
-<?php /**PATH /home/vagrant/code/aroka-book-store/vendor/crocodicstudio/crudbooster/src/views/default/type_components/custom/asset.blade.php ENDPATH**/ ?>
