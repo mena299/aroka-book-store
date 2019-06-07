@@ -23,3 +23,6 @@ Route::get('/', function () {
 Route::get('cms/register', 'cms\UserController@register');
 Route::post('cms/register', 'cms\UserController@createNewUser');
 
+Route::get('cms/login', 'cms\UserController@login');
+Route::post('cms/login', 'cms\UserController@auth');
+

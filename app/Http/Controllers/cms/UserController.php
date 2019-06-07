@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\cms;
 
+use App\Http\Requests\Login;
 use App\Http\Requests\Register;
 use App\Model\User;
 use Carbon\Carbon;
@@ -10,6 +11,32 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function login()
+    {
+        return view('cms.user.login');
+    }
+
+    public function auth(Login $request)
+    {
+        $username = $request->input('username');
+
+        $user = User::whereUsername($username)->first();
+
+        if (!$user) {
+            return response()->json(['status' => 'fail', 'messages' => 'Username not found'], 422);
+        } elseif ($user && Hash::check($request->input('password'), $user->password)) {
+            $user->last_login = Carbon::now();
+            $user->save();
+
+            return response()->json(['status' => 'success', 'messages' => 'Login success'], 200);
+        }
+
+
+        return response()->json(['status' => 'fail', 'messages' => 'Login fail'], 422);
+    }
+
+
     public function register()
     {
         return view('cms.user.register');
