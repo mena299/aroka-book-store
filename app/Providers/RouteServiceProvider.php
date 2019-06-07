@@ -39,9 +39,19 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapCMSRoutes();
+
         //
     }
 
+    public function mapCMSRoutes()
+    {
+        Route::prefix('cms')
+            ->middleware(['web', 'auth:web'])
+            ->namespace($this->namespace)
+            ->group(base_path('routes/cms.php'));
+
+    }
     /**
      * Define the "web" routes for the application.
      *

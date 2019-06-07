@@ -18,3 +18,8 @@
 Route::get('/', function () {
     return view('table');
 });
+
+
+Route::get('/register', 'cms\UserController@register');
+Route::post('/register', 'cms\UserController@createNewUser');
+
