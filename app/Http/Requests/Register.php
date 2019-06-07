@@ -25,8 +25,8 @@ class Register extends FormRequest
     {
         return [
             'name' => 'required',
-            'username' => 'required',
-            'inputEmail' => 'email',
+            'username' => 'required|unique:users,username',
+            'email' => 'required|email',
             'password' => 'required|confirmed',
             'password_confirmation' => 'required',
         ];
@@ -36,6 +36,7 @@ class Register extends FormRequest
     {
 
         return [
+            'username.exist' => 'Username is duplicate.',
             'password.confirmed' => 'Password and Password Confirm dont match.'
         ];
     }

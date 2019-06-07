@@ -12,10 +12,10 @@
     <title>Aroka Book Store</title>
 
     <!-- Custom fonts for this template-->
-    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{!! url('fontawesome-free/css/all.min.css') !!}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin2.css" rel="stylesheet">
+    <link href="{!! url('css/sb-admin2.css') !!}" rel="stylesheet">
 
 </head>
 
@@ -23,7 +23,7 @@
 
 <div class="container">
     <div class="card card-register mx-auto mt-5">
-        <form action="/register" method="POST" id="redirect-form">
+        <form action="register" method="POST" id="redirect-form">
             <div class="card-header">Register an Account For CMS</div>
             <div class="card-body">
                 @csrf
@@ -39,6 +39,7 @@
                         <input type="text" id="username" class="form-control" placeholder="Username" required="required"
                                name="username">
                         <label for="username">Username</label>
+                        <small class="text-danger">{{ $errors->first('username') }}</small>
                     </div>
                 </div>
                 <div class="form-group">
@@ -79,11 +80,11 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="js/jquery/jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{!! url('js/jquery/jquery.min.js') !!}"></script>
+<script src="{!! url('bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="jquery-easing/jquery.easing.min.js"></script>
+<script src="{!! url('jquery-easing/jquery.easing.min.js') !!}"></script>
 
 </body>
 
