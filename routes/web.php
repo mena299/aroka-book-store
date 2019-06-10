@@ -25,4 +25,5 @@ Route::post('cms/register', 'cms\UserController@createNewUser');
 
 Route::get('cms/login', 'cms\UserController@login');
 Route::post('cms/login', 'cms\UserController@auth');
+Route::get('cms/logout', 'cms\UserController@logout');
 
