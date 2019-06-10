@@ -1,5 +1,9 @@
 <?php
-
+Auth::routes();
+Route::get('login', [
+    'as' => 'cms/login',
+    'uses' => 'cms\UserController@login'
+]);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
