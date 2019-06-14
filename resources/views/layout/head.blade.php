@@ -13,7 +13,7 @@
 <link href="{!! url('css/sb-admin.css') !!}" rel="stylesheet">
 
 <!-- Morris Charts CSS -->
-<link href="url{!! url('css/plugins/morris.css') !!}" rel="stylesheet">
+<link href="{!! url('css/plugins/morris.css') !!}" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="{!! url('font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet" type="text/css">
