@@ -20,63 +20,33 @@
                     </ol>
                 </div>
             </div>
-
+            {!! isset($error) ? $errors->first('penname'): null !!}
             <div class="row">
                 <div class="col-xl-6 col-lg-12">
-                    <h2>Bordered with Striped Rows</h2>
+                    <a href="javascript:void(0)" onclick="createPenName()"
+                       class="btn btn-xs btn-icon btn-circle btn-grey" data-click="panel-collapse" title="Add Data">Add
+                        New Pen Name</a>
+
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped">
+                        <table class="table table-bordered table-hover table-striped" id="penname-table">
                             <thead>
                             <tr>
-                                <th>Page</th>
-                                <th>Visits</th>
-                                <th>% New Visits</th>
-                                <th>Revenue</th>
+                                @foreach($header as $h)
+                                    <th>{!! $h !!}</th>
+                                @endforeach
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>/index.html</td>
-                                <td>1265</td>
-                                <td>32.3%</td>
-                                <td>$321.33</td>
-                            </tr>
-                            <tr>
-                                <td>/about.html</td>
-                                <td>261</td>
-                                <td>33.3%</td>
-                                <td>$234.12</td>
-                            </tr>
-                            <tr>
-                                <td>/sales.html</td>
-                                <td>665</td>
-                                <td>21.3%</td>
-                                <td>$16.34</td>
-                            </tr>
-                            <tr>
-                                <td>/blog.html</td>
-                                <td>9516</td>
-                                <td>89.3%</td>
-                                <td>$1644.43</td>
-                            </tr>
-                            <tr>
-                                <td>/404.html</td>
-                                <td>23</td>
-                                <td>34.3%</td>
-                                <td>$23.52</td>
-                            </tr>
-                            <tr>
-                                <td>/services.html</td>
-                                <td>421</td>
-                                <td>60.3%</td>
-                                <td>$724.32</td>
-                            </tr>
-                            <tr>
-                                <td>/blog/post.html</td>
-                                <td>1233</td>
-                                <td>93.2%</td>
-                                <td>$126.34</td>
-                            </tr>
+                            @foreach($pennames as $pn)
+                                <tr>
+                                    <td>{!! $pn->id !!}</td>
+                                    <td>{!! $pn->pen_name !!}</td>
+                                    <td>{!! $pn->author_name !!}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" onclick="editPenName( '{!! $pn->id !!}','{!! $pn->pen_name  !!}','{!! $pn->author_id !!}')" class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                        <a href="javascript:void(0)" onclick="deletePenName({{ $pn->id }})" class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i class="fa fa-fw fa-trash"></i>Delete</a>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -86,4 +56,61 @@
         </div>
     </div>
 
+    <div class="modal fade" id="penname-modal" tabindex="-1" role="dialog" aria-labelledby="penname-modal-label"
+         aria-hidden="true">
+        <form action="{{ url('cms/authors/pen-names/save') }}" method="POST"
+              id="vendor-form">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="penname-modal-title">Add New Pen Name</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            {{ csrf_field() }}
+                            <label for="penname-label" class="col-form-label">Pen Name :</label>
+
+                            <input type="text" class="form-control" id="penname-label" name="penname">
+                            <input type="hidden" class="form-control" id="penname-id" name="penname_id">
+                        </div>
+
+                        <select class="form-control " name="author" id="author">
+                            <option value="0">not select</option>
+                            @foreach($authors as $a)
+                                <option value="{!! $a->id !!}">{!! $a->name !!}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
 @endsection
+
+
+<script type="text/javascript">
+
+
+    function editPenName(id,penname,author_id){
+        console.log(penname);
+        $('#penname-modal').modal({});
+        $('#penname-modal #penname-modal-title').html("Add Pen Name");
+        $('#penname-modal #penname-id').val(id);
+        $('#penname-modal #penname-label').val(penname);
+        $('#penname-modal #author').val(author_id);
+    }
+
+    function createPenName() {
+        $('#penname-modal').modal({});
+        $('#penname-modal #penname-modal-title').html("Add Pen Name");
+    }
+
+</script>
