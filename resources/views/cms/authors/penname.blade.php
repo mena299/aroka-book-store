@@ -52,7 +52,9 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-sm-7 text-right">
+                {{ $pennames->render() }}
+            </div>
         </div>
     </div>
 
