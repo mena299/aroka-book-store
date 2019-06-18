@@ -22,7 +22,7 @@
             </div>
             {!! isset($error) ? $errors->first('penname'): null !!}
             <div class="row">
-                <div class="col-xl-6 col-lg-12">
+                <div class="col-xl-12 col-lg-12">
                     <a href="javascript:void(0)" onclick="createPenName()"
                        class="btn btn-xs btn-icon btn-circle btn-grey" data-click="panel-collapse" title="Add Data">Add
                         New Pen Name</a>
@@ -43,8 +43,13 @@
                                     <td>{!! $pn->pen_name !!}</td>
                                     <td>{!! $pn->author_name !!}</td>
                                     <td>
-                                        <a href="javascript:void(0)" onclick="editPenName( '{!! $pn->id !!}','{!! $pn->pen_name  !!}','{!! $pn->author_id !!}')" class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                        <a href="javascript:void(0)" onclick="deletePenName({{ $pn->id }})" class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i class="fa fa-fw fa-trash"></i>Delete</a>
+                                        <a href="javascript:void(0)"
+                                           onclick="editPenName( '{!! $pn->id !!}','{!! $pn->pen_name  !!}','{!! $pn->author_id !!}')"
+                                           class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
+                                                class="fa fa-fw fa-edit"></i> Edit</a>
+                                        <a href="javascript:void(0)" onclick="deletePenName({{ $pn->id }})"
+                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i
+                                                class="fa fa-fw fa-trash"></i>Delete</a>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -52,8 +57,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-7 text-right">
-                {{ $pennames->render() }}
+
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    Showing {{ $pennames->firstItem() }} to {{ $pennames->lastItem() }} of {{ $pennames->total() }}
+                    entries
+                </div>
+
+                <div class="col-xl-7 col-lg-7 text-right">
+                    {{ $pennames->render() }}
+                </div>
             </div>
         </div>
     </div>
@@ -101,8 +114,7 @@
 <script type="text/javascript">
 
 
-    function editPenName(id,penname,author_id){
-        console.log(penname);
+    function editPenName(id, penname, author_id) {
         $('#penname-modal').modal({});
         $('#penname-modal #penname-modal-title').html("Add Pen Name");
         $('#penname-modal #penname-id').val(id);
@@ -113,6 +125,21 @@
     function createPenName() {
         $('#penname-modal').modal({});
         $('#penname-modal #penname-modal-title').html("Add Pen Name");
+    }
+
+    function deletePenName(id) {
+        swal({
+            title: 'Are you sure?',
+            text: "Would you like to delete this Pen Name?",
+            buttons: {
+                cancel: "Close",
+                confirm: 'Confirm',
+            },
+        }).then((result) => {
+            if (result) {
+                window.location.href = "delete/"+id;
+            }
+        });
     }
 
 </script>

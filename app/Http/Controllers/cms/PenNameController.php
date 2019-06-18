@@ -18,7 +18,7 @@ class PenNameController extends Controller
             $q->on('author_pen_name.pen_name_id', '=', 'pen_names.id');
         })->leftJoin('authors', function ($q) {
             $q->on('authors.id', '=', 'author_pen_name.author_id');
-        })->select('pen_names.id', 'pen_names.pen_name', 'authors.name as author_name','authors.id as author_id')
+        })->select('pen_names.id', 'pen_names.pen_name', 'authors.name as author_name', 'authors.id as author_id')
             ->orderBy('id', 'ASC')
             ->paginate(30);
         $header = ['id', 'pen_name', 'author', 'Precess'];
@@ -67,5 +67,24 @@ class PenNameController extends Controller
 
         return redirect('cms/authors/pen-names/list?status=success');
 
+    }
+
+
+    public function destroy($id)
+    {
+        $penname = PennameModel::whereId($id)->first();
+
+        if (!$penname) {
+            return redirect('cms/authors/pen-names/list?status=error');
+        }
+
+        try {
+            PennameModel::whereId($id)->delete();
+        } catch (\Exception $e) {
+            \Log::error($e);
+            return redirect('cms/authors/pen-names/list?status=error');
+        }
+
+        return redirect('cms/authors/pen-names/list?status=success');
     }
 }
