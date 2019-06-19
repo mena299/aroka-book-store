@@ -79,6 +79,7 @@ class PenNameController extends Controller
         }
 
         try {
+            AuthorPenname::where('pen_name_id',$id)->delete();
             PennameModel::whereId($id)->delete();
         } catch (\Exception $e) {
             \Log::error($e);

@@ -9,7 +9,7 @@
                 Authors <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="author" class="list-group collapse">
                 <li class="list-group-item">
-                    <a href="javascript:;">Authors</a>
+                    <a href="{!! url('cms/authors/list') !!}">Authors</a>
                 </li>
                 <li class="list-group-item">
                     <a href="{!! url('cms/authors/pen-names/list') !!}">Pen Name</a>
