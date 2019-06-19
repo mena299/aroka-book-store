@@ -25,6 +25,7 @@ class Author extends FormRequest
     {
         return [
             'author_name' => 'required',
+            'author_code' => 'required',
             'author_bank_account' => 'required',
             'author_bank_name' => 'required',
         ];
