@@ -37,7 +37,6 @@ class AuthorController extends Controller
     {
         $id = $request->has('author_id') ? $request->input('author_id') : null;
         $authorName = $request->input('author_name');
-        $authorCode = $request->input('author_code');
         $bankName = $request->input('author_bank_name');
         $bankAccount = $request->input('author_bank_account');
 
@@ -51,7 +50,6 @@ class AuthorController extends Controller
             }
 
             $author->name = $authorName;
-            $author->code = Str::upper($authorCode);
             $author->bank_name = $bankName;
             $author->bank_account = $bankAccount;
             $author->updated_at = $now;
@@ -67,8 +65,8 @@ class AuthorController extends Controller
 
     public function index(Request $request)
     {
-        $author = Author::select('id', 'name', 'bank_name', 'bank_account','code')->paginate(30);
-        $header = ['id','code', 'author', 'Precess'];
+        $author = Author::select('id', 'name', 'bank_name', 'bank_account')->paginate(30);
+        $header = ['id', 'author', 'Precess'];
 
         $data = [
             'header' => $header,

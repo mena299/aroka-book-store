@@ -41,10 +41,9 @@
                                 <tr>
                                     <td>{!! $author->id !!}</td>
                                     <td>{!! $author->name !!}</td>
-                                    <td>{!! $author->code !!}</td>
                                     <td>
                                         <a href="javascript:void(0)"
-                                           onclick="editAuthor('{!! $author->id !!}','{!! $author->name !!}','{!! $author->code !!}','{!! $author->bank_name !!}','{!! $author->bank_account !!}')"
+                                           onclick="editAuthor('{!! $author->id !!}','{!! $author->name !!}','{!! $author->bank_name !!}','{!! $author->bank_account !!}')"
                                            class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
                                                 class="fa fa-fw fa-edit"></i> Edit</a>
                                         <a href="javascript:void(0)" onclick="deleteAuthor({{ $author->id }})"
@@ -93,12 +92,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="author-code" class="col-form-label">Code :</label>
-
-                            <input type="text" class="form-control" id="author-code" name="author_code" required>
-                        </div>
-
-                        <div class="form-group">
                             <label for="author-bank-name" class="col-form-label">Bank Name :</label>
 
                             <input type="text" class="form-control" id="author-bank-name" name="author_bank_name" required>
@@ -126,12 +119,11 @@
 <script type="text/javascript">
 
 
-    function editAuthor(id,name,code,bname,baccount) {
+    function editAuthor(id,name,bname,baccount) {
         $('#author-modal').modal({});
         $('#author-modal #author-modal-title').html("Edit Author");
         $('#author-modal #author-id').val(id);
         $('#author-modal #author-name').val(name);
-        $('#author-modal #author-code').val(code);
         $('#author-modal #author-bank-name').val(bname);
         $('#author-modal #author-bank-account').val(baccount);
     }
