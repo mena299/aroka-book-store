@@ -40,11 +40,12 @@
                             @foreach($pennames as $pn)
                                 <tr>
                                     <td>{!! $pn->id !!}</td>
+                                    <td>{!! $pn->code !!}</td>
                                     <td>{!! $pn->pen_name !!}</td>
                                     <td>{!! $pn->author_name !!}</td>
                                     <td>
                                         <a href="javascript:void(0)"
-                                           onclick="editPenName( '{!! $pn->id !!}','{!! $pn->pen_name  !!}','{!! $pn->author_id !!}')"
+                                           onclick="editPenName( '{!! $pn->id !!}','{!! $pn->pen_name  !!}','{!! $pn->author_id !!}','{!! $pn->code !!}')"
                                            class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
                                                 class="fa fa-fw fa-edit"></i> Edit</a>
                                         <a href="javascript:void(0)" onclick="deletePenName({{ $pn->id }})"
@@ -92,6 +93,13 @@
                             <input type="hidden" class="form-control" id="penname-id" name="penname_id">
                         </div>
 
+                        <div class="form-group">
+                            <label for="penname-code" class="col-form-label">Code :</label>
+
+                            <input type="text" class="form-control" id="penname-code" name="code">
+                        </div>
+
+                        <label for="author" class="col-form-label">Author :</label>
                         <select class="form-control " name="author" id="author">
                             <option value="0">not select</option>
                             @foreach($authors as $a)
@@ -114,10 +122,11 @@
 <script type="text/javascript">
 
 
-    function editPenName(id, penname, author_id) {
+    function editPenName(id, penname, author_id,code) {
         $('#penname-modal').modal({});
         $('#penname-modal #penname-modal-title').html("Add Pen Name");
         $('#penname-modal #penname-id').val(id);
+        $('#penname-modal #penname-code').val(code);
         $('#penname-modal #penname-label').val(penname);
         $('#penname-modal #author').val(author_id);
     }

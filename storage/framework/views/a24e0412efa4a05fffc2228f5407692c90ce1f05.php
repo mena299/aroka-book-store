@@ -17,7 +17,7 @@
             </ul>
         </li>
         <li class="list-group-item">
-            <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+            <a href="<?php echo url('cms/customers'); ?>"><i class="fa fa-fw fa-table"></i> Customer</a>
         </li>
         <li class="list-group-item">
             <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>

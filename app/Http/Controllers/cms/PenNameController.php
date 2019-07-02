@@ -18,10 +18,10 @@ class PenNameController extends Controller
             $q->on('author_pen_name.pen_name_id', '=', 'pen_names.id');
         })->leftJoin('authors', function ($q) {
             $q->on('authors.id', '=', 'author_pen_name.author_id');
-        })->select('pen_names.id', 'pen_names.pen_name', 'authors.name as author_name', 'authors.id as author_id')
+        })->select('pen_names.id', 'pen_names.pen_name', 'authors.name as author_name', 'authors.id as author_id', 'pen_names.code')
             ->orderBy('id', 'ASC')
             ->paginate(30);
-        $header = ['id', 'pen_name', 'author', 'Precess'];
+        $header = ['id', 'code', 'pen_name', 'author', 'Precess'];
 
         $data = [
             'header' => $header,
@@ -37,6 +37,7 @@ class PenNameController extends Controller
     {
         $id = $request->has('penname_id') ? $request->input('penname_id') : null;
         $name = $request->input('penname');
+        $code = $request->input('code');
         $penname = new PennameModel();
         if ($id !== null) {
             $penname = PennameModel::whereId($id)->first();
@@ -47,8 +48,8 @@ class PenNameController extends Controller
 
         try {
             $penname->pen_name = $name;
+            $penname->code = $code;
             $penname->save();
-            \Log::debug($id);
 
             AuthorPenname::where('pen_name_id', $id)
                 ->delete();
@@ -79,7 +80,7 @@ class PenNameController extends Controller
         }
 
         try {
-            AuthorPenname::where('pen_name_id',$id)->delete();
+            AuthorPenname::where('pen_name_id', $id)->delete();
             PennameModel::whereId($id)->delete();
         } catch (\Exception $e) {
             \Log::error($e);
