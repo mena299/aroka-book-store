@@ -9,6 +9,7 @@ Route::group(['prefix' => '/customers'], function () {
     Route::get('/create', 'cms\CustomerController@create');
     Route::post('/save', 'cms\CustomerController@store');
     Route::get('/{id}', 'cms\CustomerController@edit');
+    Route::get('delete/{id}', 'cms\CustomerController@destroy');
 });
 
 Route::group(['prefix' => '/authors'], function () {

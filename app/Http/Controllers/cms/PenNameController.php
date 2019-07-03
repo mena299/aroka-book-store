@@ -76,7 +76,7 @@ class PenNameController extends Controller
         $penname = PennameModel::whereId($id)->first();
 
         if (!$penname) {
-            return redirect('cms/authors/pen-names/list?status=error');
+            abort(404);
         }
 
         try {

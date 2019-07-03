@@ -44,11 +44,10 @@
                                     <td>{!! $c->email !!}</td>
                                     <td>{!! $c->phone_number !!}</td>
                                     <td>
-                                        <a href="javascript:void(0)"
-                                           onclick="editPenName( '{!! $c->id !!}','{!! $c->pen_name  !!}','{!! $c->author_id !!}','{!! $c->code !!}')"
+                                        <a href="{!! url('cms/customers/'.$c->id) !!}" target="_blank"
                                            class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
                                                 class="fa fa-fw fa-edit"></i> Edit</a>
-                                        <a href="javascript:void(0)" onclick="deletePenName({{ $c->id }})"
+                                        <a href="javascript:void(0)" onclick="deleteCustomer({{ $c->id }})"
                                            class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i
                                                 class="fa fa-fw fa-trash"></i>Delete</a>
                                 </tr>
@@ -79,17 +78,17 @@
 
 <script type="text/javascript">
 
-    function deletePenName(id) {
+    function deleteCustomer(id) {
         swal({
             title: 'Are you sure?',
-            text: "Would you like to delete this Pen Name?",
+            text: "Would you like to delete this Customer?",
             buttons: {
                 cancel: "Close",
                 confirm: 'Confirm',
             },
         }).then((result) => {
             if (result) {
-                window.location.href = "delete/"+id;
+                window.location.href = "/cms/customers/delete/"+id;
             }
         });
     }

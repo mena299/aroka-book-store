@@ -33,7 +33,7 @@ class CustomerController extends Controller
             $customer->updated_at = $now;
             $customer->save();
 
-            return redirect('cms/customers/'.$customer->id);
+            return redirect('cms/customers/' . $customer->id);
 //            return response()->json(['success'=>true, 'redirect'=>url('/cms/customers/'.$customer->id)]);
         } catch (\Exception $e) {
             \Log::error($e);
@@ -45,9 +45,19 @@ class CustomerController extends Controller
     }
 
 
-    public function edit()
+    public function edit($id)
     {
-        return view('cms.customers.edit');
+        $customer = Customer::find($id);
+
+        if (!$customer) {
+            abort(404);
+        }
+        $data = [
+            'customer' => $customer,
+            'order' => []
+        ];
+
+        return view('cms.customers.edit')->with($data);
     }
 
 
@@ -70,5 +80,23 @@ class CustomerController extends Controller
 
 
         return view('cms.customers.index')->with($data);
+    }
+
+    public function destroy($id)
+    {
+        $customer = Customer::whereId($id)->first();
+
+        if (!$customer) {
+            abort(404);
+        }
+
+        try {
+            $customer::whereId($id)->delete();
+        } catch (\Exception $e) {
+            \Log::error($e);
+            return redirect('cms/customers/' . $id);
+        }
+
+        return redirect('cms/customers/');
     }
 }
