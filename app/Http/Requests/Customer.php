@@ -25,8 +25,6 @@ class Customer extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
-            'number' => 'required|numeric'
         ];
     }
 }

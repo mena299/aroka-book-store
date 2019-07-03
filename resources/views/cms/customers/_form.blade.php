@@ -6,6 +6,7 @@
                 <small class="text-danger">{{ $errors->first('name') }}</small>
                 <input type="text" class="form-control" id="name" name="name" value="{!! isset($customer->name) ? $customer->name : null !!}">
             </div>
+            <input type="hidden" class="form-control" id="id" name="id" value="{!! isset($customer->id) ? $customer->id : null !!}">
         </div>
 
         <div class="form-group">

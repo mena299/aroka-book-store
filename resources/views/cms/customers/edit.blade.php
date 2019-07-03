@@ -14,14 +14,14 @@
                             <i class="fa fa-dashboard"></i> <a href="{!! url('cms/dashboard') !!}">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i> Customers
+                            <i class="fa fa-table"></i> <a href="{!! url('cms/customers') !!}"> Customers </a>
                         </li>
                     </ol>
                 </div>
             </div>
 
 
-            <form action="{{ url('cms/customers/save') }}" method="POST"
+            <form action="{{ url('cms/customers/save/'.$customer->id) }}" method="POST"
                   id="customer-form">
                 {{ csrf_field() }}
                 @include('cms.customers._form')
