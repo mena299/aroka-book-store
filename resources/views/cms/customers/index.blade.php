@@ -20,7 +20,21 @@
                     </ol>
                 </div>
             </div>
-            {!! isset($error) ? $errors->first('penname'): null !!}
+            {!! isset($error) ? $errors->first('customer'): null !!}
+
+            <form onsubmit="return js_searchData('customers')" class="form-inline">
+                <div class="form-group">
+                    <div class="col-xl-10">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                               aria-describedby="button-addon2" id="search" name="search">
+                        <div class="input-group-append">
+{{--                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i--}}
+{{--                                    class="fa fa-search"></i></button>--}}
+                        </div>
+                    </div>
+                </div>
+            </form>
+
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <a href="{!! url('cms/customers/create') !!}"
@@ -43,6 +57,7 @@
                                     <td>{!! $c->name !!}</td>
                                     <td>{!! $c->email !!}</td>
                                     <td>{!! $c->phone_number !!}</td>
+                                    <td>{!! $c->remark !!}</td>
                                     <td>
                                         <a href="{!! url('cms/customers/'.$c->id) !!}" target="_blank"
                                            class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
@@ -88,7 +103,7 @@
             },
         }).then((result) => {
             if (result) {
-                window.location.href = "/cms/customers/delete/"+id;
+                window.location.href = "/cms/customers/delete/" + id;
             }
         });
     }

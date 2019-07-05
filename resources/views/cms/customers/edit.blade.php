@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-
+    <div id="page-wrapper">
         <div class="container-fluid">
 
             <div class="row">
@@ -27,8 +27,8 @@
                 @include('cms.customers._form')
             </form>
 
-
         </div>
+    </div>
 
 
 

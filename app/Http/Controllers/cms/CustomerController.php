@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Customer as CustomerRequest;
 use App\Model\Customer;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -66,12 +67,24 @@ class CustomerController extends Controller
         return view('cms.customers.create');
     }
 
-    public function index()
+    public function index(Request $request)
     {
 
-        $header = ['id', 'name', 'email', 'phone', 'Precess'];
-        $customers = Customer::orderBy('id', 'ASC')
-            ->paginate(30);
+        $search = $request->has('search') ? $request->input('search') : null;
+        $header = ['ID', 'Name', 'Email', 'Phone','Remark', 'Precess'];
+        $customers = Customer::orderBy('id', 'ASC');
+
+        if ($search !== null) {
+            $customers = $customers->where('name', 'LIKE', "%$search%")
+                ->orWhere('twitter', 'LIKE', "%$search%")
+                ->orWhere('facebook', 'LIKE', "%$search%")
+                ->orWhere('instagram', 'LIKE', "%$search%")
+                ->orWhere('email', 'LIKE', "%$search%")
+                ->orWhere('phone_number', 'LIKE', "%$search%")
+                ->orWhere('remark', 'LIKE', "%$search%");
+        }
+
+        $customers = $customers->paginate(30);
 
         $data = [
             'header' => $header,
