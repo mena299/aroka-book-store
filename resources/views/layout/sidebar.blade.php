@@ -20,6 +20,9 @@
             <a href="{!! url('cms/customers') !!}"><i class="fa fa-fw fa-table"></i> Customer</a>
         </li>
         <li class="list-group-item">
+            <a href="{!! url('cms/products') !!}"><i class="fa fa-fw fa-table"></i> Products</a>
+        </li>
+        <li class="list-group-item">
             <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
         </li>
         <li class="list-group-item">

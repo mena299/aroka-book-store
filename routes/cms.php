@@ -4,6 +4,10 @@
 Route::get('dashboard', 'cms\DashboardController@dashboard');
 
 
+Route::group(['prefix' => '/products'], function () {
+    Route::get('/', 'cms\ProductController@index');
+});
+
 Route::group(['prefix' => '/customers'], function () {
     Route::get('/', 'cms\CustomerController@index');
     Route::get('/create', 'cms\CustomerController@create');
