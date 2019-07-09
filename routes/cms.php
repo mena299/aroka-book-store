@@ -6,6 +6,10 @@ Route::get('dashboard', 'cms\DashboardController@dashboard');
 
 Route::group(['prefix' => '/products'], function () {
     Route::get('/', 'cms\ProductController@index');
+    Route::get('/create', 'cms\ProductController@create');
+    Route::post('/save', 'cms\ProductController@store');
+    Route::post('/save/{id}', 'cms\ProductController@store');
+    Route::get('/{id}', 'cms\ProductController@edit');
 });
 
 Route::group(['prefix' => '/customers'], function () {

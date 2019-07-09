@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <h1 class="page-header">
-                        Customers
+                        Products
                     </h1>
                     <ol class="breadcrumb">
                         <li>
@@ -20,7 +20,7 @@
                     </ol>
                 </div>
             </div>
-            {!! isset($error) ? $errors->first('customer'): null !!}
+            {!! isset($error) ? $errors->first('products'): null !!}
 
             <form onsubmit="return js_searchData('products')" class="form-inline">
                 <div class="form-group">
@@ -40,33 +40,37 @@
                         New Product</a>
 
                     <div class="table-responsive">
-{{--                        <table class="table table-bordered table-hover table-striped" id="penname-table">--}}
-{{--                            <thead>--}}
-{{--                            <tr>--}}
-{{--                                @foreach($header as $h)--}}
-{{--                                    <th>{!! $h !!}</th>--}}
-{{--                                @endforeach--}}
-{{--                            </tr>--}}
-{{--                            </thead>--}}
-{{--                            <tbody>--}}
-{{--                            @foreach($customers as $c)--}}
-{{--                                <tr>--}}
-{{--                                    <td>{!! $c->id !!}</td>--}}
-{{--                                    <td>{!! $c->name !!}</td>--}}
-{{--                                    <td>{!! $c->email !!}</td>--}}
-{{--                                    <td>{!! $c->phone_number !!}</td>--}}
-{{--                                    <td>{!! $c->remark !!}</td>--}}
-{{--                                    <td>--}}
-{{--                                        <a href="{!! url('cms/customers/'.$c->id) !!}" target="_blank"--}}
-{{--                                           class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i--}}
-{{--                                                class="fa fa-fw fa-edit"></i> Edit</a>--}}
-{{--                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $c->id }})"--}}
-{{--                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i--}}
-{{--                                                class="fa fa-fw fa-trash"></i>Delete</a>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
-{{--                            </tbody>--}}
-{{--                        </table>--}}
+                        <table class="table table-bordered table-hover table-striped" id="penname-table">
+                            <thead>
+                            <tr>
+                                @foreach($header as $h)
+                                    <th>{!! $h !!}</th>
+                                @endforeach
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($products as $p)
+                                <tr>
+                                    <td>{!! $p->id !!}</td>
+                                    <td>{!! $p->title_th !!} @if(isset($p->title_en))({!! $p->title_en !!}) @endif</td>
+                                    <td>{!! $p->sku !!}</td>
+                                    <td>{!! $p->pen_name !!}</td>
+                                    <td>{!! $p->cost !!}</td>
+                                    <td>{!! $p->register !!}</td>
+                                    <td>{!! $p->ems !!}</td>
+                                    <td>{!! $p->stock !!}</td>
+                                    <td>{!! $p->status !!}</td>
+                                    <td>
+                                        <a href="{!! url('cms/products/'.$p->id) !!}" target="_blank"
+                                           class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
+                                                class="fa fa-fw fa-edit"></i> Edit</a>
+                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $p->id }})"
+                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i
+                                                class="fa fa-fw fa-trash"></i>Delete</a>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -15,15 +15,10 @@
 
 <script type="text/javascript">
     /*search Data*/
-    function js_searchData(part)
-    {
-        console.log($("#search").val());
-        console.log(part);
+    function js_searchData(part) {
+        location = part + "?search=" + encodeURIComponent($("#search").val());
 
-            location = part+"?search="+encodeURIComponent($("#search").val());
-
-        if ($("#search").val().trim()=="")
-        {
+        if ($("#search").val().trim() == "") {
             location = part;
         }
 
