@@ -49,9 +49,11 @@ class ProductController extends Controller
             $product->pen_name_id = $request->has('pen_name_id') ? $request->input('pen_name_id') : null;
             $product->status = $request->has('status') ? $request->input('status') : 'N';
             $product->status = $request->has('status') ? $request->input('status') : 'N';
+            $product->price = $request->has('product_price') ? $request->input('product_price') : 0;
             $product->cost = $request->has('product_cost') ? $request->input('product_cost') : 0;
             $product->register = $request->has('register_cost') ? $request->input('register_cost') : 0;
             $product->ems = $request->has('ems_cost') ? $request->input('ems_cost') : 0;
+            $product->remark = $request->has('remark') ? $request->input('remark') : 0;
             $product->updated_at = $now;
             $product->save();
 
@@ -59,7 +61,8 @@ class ProductController extends Controller
 
         } catch (\Exception $e) {
             \Log::error($e);
-            throw new \Exception('Cant Product Product');
+            throw $e;
+//            throw new \Exception('Cant Product Product');
         }
 
         return redirect('cms/products/create');

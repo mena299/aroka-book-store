@@ -32,7 +32,7 @@
                 <select class="form-control " name="pen_name_id" id="pen_name_id">
                     <option value="{!! null !!}">not select</option>
                     @foreach($penname as $p)
-                        @if($product->pen_name_id == $p->id)
+                        @if(isset($product) && $product->pen_name_id == $p->id)
                             <option value="{!! $p->id !!}" selected>{!! $p->pen_name !!}</option>
                         @else
                             <option value="{!! $p->id !!}">{!! $p->pen_name !!}</option>
@@ -62,21 +62,28 @@
 
     <div class="row">
         <div class="form-group">
-            <div class="col-xl-4">
+            <div class="col-xl-3">
+                <label class="container-fluid" for="title_th">Product Price : </label>
+                <small class="text-danger">{{ $errors->first('product_price') }}</small>
+                <input type="number" class="form-control" id="product_price" name="product_price"
+                       value="{!! isset($product->price) ? $product->price : null !!}">
+            </div>
+
+            <div class="col-xl-3">
                 <label class="container-fluid" for="title_th">Product Cost : </label>
                 <small class="text-danger">{{ $errors->first('product_cost') }}</small>
                 <input type="number" class="form-control" id="product_cost" name="product_cost"
                        value="{!! isset($product->cost) ? $product->cost : null !!}">
             </div>
 
-            <div class="col-xl-4">
+            <div class="col-xl-3">
                 <label class="container-fluid" for="title_th">Register Cost : </label>
                 <small class="text-danger">{{ $errors->first('register_cost') }}</small>
                 <input type="number" class="form-control" id="register_cost" name="register_cost"
                        value="{!! isset($product->register) ? $product->register : null !!}">
             </div>
 
-            <div class="col-xl-4">
+            <div class="col-xl-3">
                 <label class="container-fluid" for="title_th">EMS Cost : </label>
                 <small class="text-danger">{{ $errors->first('ems_cost') }}</small>
                 <input type="number" class="form-control" id="ems_cost" name="ems_cost"
@@ -92,6 +99,12 @@
                 <small class="text-danger">{{ $errors->first('content') }}</small>
                 <textarea class="form-control" id="content" name="content"
                           rows="3">{!! isset($product->content) ? $product->content : null !!}</textarea>
+            </div>
+            <div class="col-xl-6">
+                <label class="container-fluid" for="content">Remark : </label>
+                <small class="text-danger">{{ $errors->first('remark') }}</small>
+                <textarea class="form-control" id="remark" name="remark"
+                          rows="3">{!! isset($product->remark) ? $product->remark : null !!}</textarea>
             </div>
         </div>
     </div>
