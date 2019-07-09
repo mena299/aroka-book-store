@@ -64,9 +64,9 @@
                                         <a href="{!! url('cms/products/'.$p->id) !!}" target="_blank"
                                            class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
                                                 class="fa fa-fw fa-edit"></i> Edit</a>
-                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $p->id }})"
-                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i
-                                                class="fa fa-fw fa-trash"></i>Delete</a>
+{{--                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $p->id }})"--}}
+{{--                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i--}}
+{{--                                                class="fa fa-fw fa-trash"></i>Delete</a>--}}
                                 </tr>
                             @endforeach
                             </tbody>
@@ -95,17 +95,17 @@
 
 <script type="text/javascript">
 
-    function deleteCustomer(id) {
+    function deleteProduct(id) {
         swal({
             title: 'Are you sure?',
-            text: "Would you like to delete this Customer?",
+            text: "Would you like to delete this Product?",
             buttons: {
                 cancel: "Close",
                 confirm: 'Confirm',
             },
         }).then((result) => {
             if (result) {
-                window.location.href = "/cms/customers/delete/" + id;
+                window.location.href = "/cms/products/delete/" + id;
             }
         });
     }
