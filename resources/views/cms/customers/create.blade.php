@@ -14,7 +14,7 @@
                             <i class="fa fa-dashboard"></i> <a href="{!! url('cms/dashboard') !!}">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i> <a href="{!! url('cms/customers') !!}"> Customers </a>
+                            <i class="fa fa-table"></i> <a href="{!! url('cms/customers/list') !!}"> Customers </a>
                         </li>
                     </ol>
                 </div>

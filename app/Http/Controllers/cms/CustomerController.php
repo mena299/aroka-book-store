@@ -35,14 +35,12 @@ class CustomerController extends Controller
             $customer->save();
 
             return redirect('cms/customers/' . $customer->id);
-//            return response()->json(['success'=>true, 'redirect'=>url('/cms/customers/'.$customer->id)]);
         } catch (\Exception $e) {
             \Log::error($e);
-            throw new \Exception('Cant Create Customer');
+            throw $e;
         }
 
-        return redirect('cms/customers/create');
-//        return response()->json(['success'=>false, 'redirect'=>url('/cms/customers/create')]);
+        return redirect('cms/customers/create/list');
     }
 
 

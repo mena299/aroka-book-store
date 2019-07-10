@@ -4,8 +4,14 @@
 Route::get('dashboard', 'cms\DashboardController@dashboard');
 
 
+Route::group(['prefix' => '/orders'], function () {
+    Route::get('/list', 'cms\OrderController@index');
+});
+
+
+
 Route::group(['prefix' => '/products'], function () {
-    Route::get('/', 'cms\ProductController@index');
+    Route::get('/list', 'cms\ProductController@index');
     Route::get('/create', 'cms\ProductController@create');
     Route::post('/save', 'cms\ProductController@store');
     Route::post('/save/{id}', 'cms\ProductController@store');
@@ -13,7 +19,7 @@ Route::group(['prefix' => '/products'], function () {
 });
 
 Route::group(['prefix' => '/customers'], function () {
-    Route::get('/', 'cms\CustomerController@index');
+    Route::get('/list', 'cms\CustomerController@index');
     Route::get('/create', 'cms\CustomerController@create');
     Route::post('/save', 'cms\CustomerController@store');
     Route::post('/save/{id}', 'cms\CustomerController@store');

@@ -17,37 +17,19 @@
             </ul>
         </li>
         <li class="list-group-item">
-            <a href="<?php echo url('cms/customers'); ?>"><i class="fa fa-fw fa-table"></i> Customer</a>
+            <a href="<?php echo url('cms/customers/list'); ?>"><i class="fa fa-fw fa-table"></i> Customer</a>
         </li>
         <li class="list-group-item">
-            <a href="<?php echo url('cms/products'); ?>"><i class="fa fa-fw fa-table"></i> Products</a>
+            <a href="<?php echo url('cms/products/list'); ?>"><i class="fa fa-fw fa-table"></i> Products</a>
         </li>
         <li class="list-group-item">
-            <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-        </li>
-        <li class="list-group-item">
-            <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-        </li>
-        <li class="list-group-item">
-            <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-        </li>
-        <li class="list-group-item">
-            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>
-                Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-            <ul id="demo" class="list-group collapse">
+            <a href="javascript:;" data-toggle="collapse" data-target="#orders"><i class="fa fa-fw fa-arrows-v"></i>
+                Orders <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="orders" class="list-group collapse">
                 <li class="list-group-item">
-                    <a href="javascript:;">Dropdown Item</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="javascript:;">Dropdown Item</a>
+                    <a href="<?php echo url('cms/orders/list'); ?>">Orders</a>
                 </li>
             </ul>
-        </li>
-        <li class="list-group-item">
-            <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-        </li>
-        <li class="list-group-item">
-            <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
         </li>
     </ul>
 </div>

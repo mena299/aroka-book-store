@@ -62,10 +62,9 @@ class ProductController extends Controller
         } catch (\Exception $e) {
             \Log::error($e);
             throw $e;
-//            throw new \Exception('Cant Product Product');
         }
 
-        return redirect('cms/products/create');
+        return redirect('cms/products/list');
     }
 
     public function create()

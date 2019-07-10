@@ -15,14 +15,14 @@
                             <i class="fa fa-dashboard"></i> <a href="{!! url('cms/dashboard') !!}">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i><a href="{!! url('cms/products') !!}"> Products </a>
+                            <i class="fa fa-table"></i><a href="{!! url('cms/products/list') !!}"> Products </a>
                         </li>
                     </ol>
                 </div>
             </div>
             {!! isset($error) ? $errors->first('products'): null !!}
 
-            <form onsubmit="return js_searchData('products')" class="form-inline">
+            <form onsubmit="return js_searchData('list')" class="form-inline">
                 <div class="form-group">
                     <div class="col-xl-10">
                         <input type="text" class="form-control" placeholder="Search" aria-label="Search"
