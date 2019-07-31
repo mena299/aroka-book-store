@@ -6,6 +6,7 @@ Route::get('dashboard', 'cms\DashboardController@dashboard');
 
 Route::group(['prefix' => '/orders'], function () {
     Route::get('/list', 'cms\OrderController@index');
+    Route::post('/upload', 'cms\OrderController@uploadDSOTMPreOrder');
 });
 
 

@@ -22,16 +22,27 @@
             </div>
             {!! isset($error) ? $errors->first('products'): null !!}
 
-            <form onsubmit="return js_searchData('orders')" class="form-inline">
+            <div class="row">
                 <div class="form-group">
-                    <div class="col-xl-10">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                               aria-describedby="button-addon2" id="search" name="search">
-                        <div class="input-group-append">
+                    <form class="form-inline">
+
+                        <div class="col-xl-6">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                                   aria-describedby="button-addon2" id="search" name="search">
                         </div>
-                    </div>
+                    </form>
+
+                    <form action="{{ url('cms/orders/upload') }}" class="form-inline" method="POST"
+                          id="order-upload-form" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="col-xl-6">
+                            <input type="file" class="form-control" id="order" name="order">
+                            <input type="submit" value="upload" class="btn">
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
+
 
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
@@ -39,55 +50,54 @@
                        class="btn btn-xs btn-icon btn-circle btn-grey" data-click="panel-collapse" title="Add Data">Add
                         New Product</a>
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped" id="penname-table">
-                            <thead>
-                            <tr>
-                                @foreach($header as $h)
-                                    <th>{!! $h !!}</th>
-                                @endforeach
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($products as $p)
-                                <tr>
-                                    <td>{!! $p->id !!}</td>
-                                    <td>{!! $p->title_th !!} @if(isset($p->title_en))({!! $p->title_en !!}) @endif</td>
-                                    <td>{!! $p->sku !!}</td>
-                                    <td>{!! $p->pen_name !!}</td>
-                                    <td>{!! $p->cost !!}</td>
-                                    <td>{!! $p->register !!}</td>
-                                    <td>{!! $p->ems !!}</td>
-                                    <td>{!! $p->stock !!}</td>
-                                    <td>{!! $p->status !!}</td>
-                                    <td>
-                                        <a href="{!! url('cms/products/'.$p->id) !!}" target="_blank"
-                                           class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
-                                                class="fa fa-fw fa-edit"></i> Edit</a>
-{{--                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $p->id }})"--}}
-{{--                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i--}}
-{{--                                                class="fa fa-fw fa-trash"></i>Delete</a>--}}
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    {{--                    <div class="table-responsive">--}}
+                    {{--                        <table class="table table-bordered table-hover table-striped" id="penname-table">--}}
+                    {{--                            <thead>--}}
+                    {{--                            <tr>--}}
+                    {{--                                @foreach($header as $h)--}}
+                    {{--                                    <th>{!! $h !!}</th>--}}
+                    {{--                                @endforeach--}}
+                    {{--                            </tr>--}}
+                    {{--                            </thead>--}}
+                    {{--                            <tbody>--}}
+                    {{--                            @foreach($products as $p)--}}
+                    {{--                                <tr>--}}
+                    {{--                                    <td>{!! $p->id !!}</td>--}}
+                    {{--                                    <td>{!! $p->title_th !!} @if(isset($p->title_en))({!! $p->title_en !!}) @endif</td>--}}
+                    {{--                                    <td>{!! $p->sku !!}</td>--}}
+                    {{--                                    <td>{!! $p->pen_name !!}</td>--}}
+                    {{--                                    <td>{!! $p->cost !!}</td>--}}
+                    {{--                                    <td>{!! $p->register !!}</td>--}}
+                    {{--                                    <td>{!! $p->ems !!}</td>--}}
+                    {{--                                    <td>{!! $p->stock !!}</td>--}}
+                    {{--                                    <td>{!! $p->status !!}</td>--}}
+                    {{--                                    <td>--}}
+                    {{--                                        <a href="{!! url('cms/products/'.$p->id) !!}" target="_blank"--}}
+                    {{--                                           class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i--}}
+                    {{--                                                class="fa fa-fw fa-edit"></i> Edit</a>--}}
+                    {{--                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $p->id }})"--}}
+                    {{--                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i--}}
+                    {{--                                                class="fa fa-fw fa-trash"></i>Delete</a>--}}
+                    {{--                                </tr>--}}
+                    {{--                            @endforeach--}}
+                    {{--                            </tbody>--}}
+                    {{--                        </table>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
 
             <div class="row" style="margin-bottom: 10px;">
-{{--                <div class="col-lg-5 col-md-5 col-sm-5">--}}
-{{--                    Showing {{ $customers->firstItem() }} to {{ $customers->lastItem() }} of {{ $customers->total() }}--}}
-{{--                    entries--}}
-{{--                </div>--}}
+                {{--                <div class="col-lg-5 col-md-5 col-sm-5">--}}
+                {{--                    Showing {{ $customers->firstItem() }} to {{ $customers->lastItem() }} of {{ $customers->total() }}--}}
+                {{--                    entries--}}
+                {{--                </div>--}}
 
-{{--                <div class="col-xl-7 col-lg-7 text-right">--}}
-{{--                    {{ $customers->render() }}--}}
-{{--                </div>--}}
+                {{--                <div class="col-xl-7 col-lg-7 text-right">--}}
+                {{--                    {{ $customers->render() }}--}}
+                {{--                </div>--}}
             </div>
         </div>
     </div>
-
 
 
 @endsection
