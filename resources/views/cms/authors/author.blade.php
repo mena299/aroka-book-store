@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <h1 class="page-header">
-                        Pen Names
+                        Authors
                     </h1>
                     <ol class="breadcrumb">
                         <li>
@@ -43,7 +43,7 @@
                                     <td>{!! $author->name !!}</td>
                                     <td>
                                         <a href="javascript:void(0)"
-                                           onclick="editAuthor('{!! $author->id !!}','{!! $author->name !!}','{!! $author->bank_name !!}','{!! $author->bank_account !!}')"
+                                           onclick="editAuthor('{!! $author->id !!}','{!! $author->name !!}','{!! $author->bank_name !!}','{!! $author->bank_account !!}','{!! $author->phone_number !!}','{!! $author->email !!}')"
                                            class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i
                                                 class="fa fa-fw fa-edit"></i> Edit</a>
                                         <a href="javascript:void(0)" onclick="deleteAuthor({{ $author->id }})"
@@ -102,6 +102,16 @@
 
                             <input type="text" class="form-control" id="author-bank-account" name="author_bank_account" required>
                         </div>
+                        <div class="form-group">
+                            <label for="author-phone-number" class="col-form-label">Phone Number :</label>
+
+                            <input type="text" class="form-control" id="author-phone-number" name="phone_number">
+                        </div>
+                        <div class="form-group">
+                            <label for="author-email" class="col-form-label">Email :</label>
+
+                            <input type="text" class="form-control" id="author-email" name="email">
+                        </div>
 
                     </div>
                     <div class="modal-footer">
@@ -119,13 +129,15 @@
 <script type="text/javascript">
 
 
-    function editAuthor(id,name,bname,baccount) {
+    function editAuthor(id,name,bname,baccount,phone_number,email) {
         $('#author-modal').modal({});
         $('#author-modal #author-modal-title').html("Edit Author");
         $('#author-modal #author-id').val(id);
         $('#author-modal #author-name').val(name);
         $('#author-modal #author-bank-name').val(bname);
         $('#author-modal #author-bank-account').val(baccount);
+        $('#author-modal #author-phone-number').val(phone_number);
+        $('#author-modal #author-email').val(email);
     }
 
     function createAuthor() {

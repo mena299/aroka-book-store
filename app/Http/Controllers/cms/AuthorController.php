@@ -39,6 +39,8 @@ class AuthorController extends Controller
         $authorName = $request->input('author_name');
         $bankName = $request->input('author_bank_name');
         $bankAccount = $request->input('author_bank_account');
+        $phone_number = $request->input('phone_number');
+        $email = $request->input('email');
 
         $now = Carbon::now();
         try {
@@ -52,6 +54,8 @@ class AuthorController extends Controller
             $author->name = $authorName;
             $author->bank_name = $bankName;
             $author->bank_account = $bankAccount;
+            $author->phone_number = $phone_number;
+            $author->email = $email;
             $author->updated_at = $now;
             $author->save();
 
@@ -65,7 +69,7 @@ class AuthorController extends Controller
 
     public function index(Request $request)
     {
-        $author = Author::select('id', 'name', 'bank_name', 'bank_account')->paginate(30);
+        $author = Author::select('id', 'name', 'bank_name', 'bank_account','phone_number','email')->paginate(30);
         $header = ['id', 'author', 'Precess'];
 
         $data = [
