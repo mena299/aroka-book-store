@@ -448,6 +448,57 @@ class OrderController extends Controller
     {
         $data = array();
 
+        $search = $request->has('search') ? $request->input('search') : null;
+
+        $header = ['Order Id', 'Old Order Id', 'Customer Name', 'Email', 'Phone', 'Products', 'Status', 'Price', 'Is PreOrder', 'Shipping Type', 'Tracking', 'Transporter', 'Process'];
+
+        $order_data = Order::join('order_products', 'order_products.order_id', '=', 'orders.id')
+            ->leftJoin('products', 'products.id', '=', 'order_products.product_id')
+            ->leftJoin('customers', 'customers.id', '=', 'orders.customer_id')
+            ->select('orders.*', 'products.title_th', 'customers.email', 'customers.phone_number');
+
+        if ($search) {
+            $order_data = $order_data->orWhere('orders.old_order_id', 'LIKE', "%$search%")
+                ->orWhere('orders.shipping_name', 'LIKE', "%$search%")
+                ->orWhere('orders.tracking', 'LIKE', "%$search%")
+                ->orWhere('customers.phone_number', 'LIKE', "%$search%")
+                ->orWhere('customers.email', 'LIKE', "%$search%");
+        }
+
+        $order_data = $order_data->orderBy('id', 'desc')->paginate(30);
+
+
+        $orders = [];
+
+        foreach ($order_data as $od) {
+
+            $orders[$od->id]['order_id'] = $od->id;
+            $orders[$od->id]['old_order_id'] = $od->old_order_id;
+            $orders[$od->id]['customer_name'] = $od->shipping_name;
+            $orders[$od->id]['email'] = $od->email;
+            $orders[$od->id]['email'] = $od->phone_number;
+            $orders[$od->id]['status'] = $od->status;
+            $orders[$od->id]['shipping_type'] = $od->shipping_type;
+            $orders[$od->id]['price'] = $od->net_price;
+            $orders[$od->id]['is_preorder'] = $od->is_preorder;
+            $orders[$od->id]['transporter'] = $od->transporter;
+            $orders[$od->id]['tracking'] = $od->tracking;
+            $orders[$od->id]['products'][] = $od->title_th;
+        }
+
+
+        foreach ($orders as $key => $or) {
+            if (isset($or['products'])) {
+                $orders[$key]['products'] = collect($or['products'])->join(',');
+            }
+        }
+
+        $data = [
+            'header' => $header,
+            'orders' => $orders,
+            'order_data' => $order_data
+        ];
+
         return view('cms.orders.index')->with($data);
 
     }

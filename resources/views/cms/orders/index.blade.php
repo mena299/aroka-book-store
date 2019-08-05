@@ -15,7 +15,7 @@
                             <i class="fa fa-dashboard"></i> <a href="{!! url('cms/dashboard') !!}">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i><a href="{!! url('cms/products') !!}"> Orders </a>
+                            <i class="fa fa-table"></i><a href="{!! url('cms/orders/list') !!}"> Orders </a>
                         </li>
                     </ol>
                 </div>
@@ -43,58 +43,57 @@
                 </div>
             </div>
 
-
+            <br>
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
-                    <a href="{!! url('cms/products/create') !!}"
-                       class="btn btn-xs btn-icon btn-circle btn-grey" data-click="panel-collapse" title="Add Data">Add
-                        New Product</a>
-
-                    {{--                    <div class="table-responsive">--}}
-                    {{--                        <table class="table table-bordered table-hover table-striped" id="penname-table">--}}
-                    {{--                            <thead>--}}
-                    {{--                            <tr>--}}
-                    {{--                                @foreach($header as $h)--}}
-                    {{--                                    <th>{!! $h !!}</th>--}}
-                    {{--                                @endforeach--}}
-                    {{--                            </tr>--}}
-                    {{--                            </thead>--}}
-                    {{--                            <tbody>--}}
-                    {{--                            @foreach($products as $p)--}}
-                    {{--                                <tr>--}}
-                    {{--                                    <td>{!! $p->id !!}</td>--}}
-                    {{--                                    <td>{!! $p->title_th !!} @if(isset($p->title_en))({!! $p->title_en !!}) @endif</td>--}}
-                    {{--                                    <td>{!! $p->sku !!}</td>--}}
-                    {{--                                    <td>{!! $p->pen_name !!}</td>--}}
-                    {{--                                    <td>{!! $p->cost !!}</td>--}}
-                    {{--                                    <td>{!! $p->register !!}</td>--}}
-                    {{--                                    <td>{!! $p->ems !!}</td>--}}
-                    {{--                                    <td>{!! $p->stock !!}</td>--}}
-                    {{--                                    <td>{!! $p->status !!}</td>--}}
-                    {{--                                    <td>--}}
-                    {{--                                        <a href="{!! url('cms/products/'.$p->id) !!}" target="_blank"--}}
-                    {{--                                           class="btn btn-default btn-xs btn-rounded p-l-10 p-r-10"><i--}}
-                    {{--                                                class="fa fa-fw fa-edit"></i> Edit</a>--}}
-                    {{--                                        <a href="javascript:void(0)" onclick="deleteProduct({{ $p->id }})"--}}
-                    {{--                                           class="btn btn-danger btn-xs btn-rounded p-l-10 p-r-10"><i--}}
-                    {{--                                                class="fa fa-fw fa-trash"></i>Delete</a>--}}
-                    {{--                                </tr>--}}
-                    {{--                            @endforeach--}}
-                    {{--                            </tbody>--}}
-                    {{--                        </table>--}}
-                    {{--                    </div>--}}
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped" id="penname-table">
+                            <thead>
+                            <tr>
+                                @foreach($header as $h)
+                                    <th>{!! $h !!}</th>
+                                @endforeach
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($orders as $o)
+                                <tr>
+                                    <td>{!! $o['order_id'] !!}</td>
+                                    <td>{!! $o['old_order_id'] !!}</td>
+                                    <td>{!! $o['customer_name'] !!}</td>
+                                    <td>{!! $o['email'] !!}</td>
+                                    <td>{!! $o['products'] !!}</td>
+                                    <td>{!! $o['status'] !!}</td>
+                                    <td>{!! $o['price'] !!}</td>
+                                    <td>{!! $o['is_preorder'] !!}</td>
+                                    <td>{!! $o['shipping_type'] !!}</td>
+                                    <td>{!! $o['tracking'] !!}</td>
+                                    <td>{!! $o['transporter'] !!}</td>
+                                    <td>
+                                        <a href="javascript:void(0)" onclick=""
+                                           class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">View</a>
+                                        <a href="javascript:void(0)" onclick="updateTracking({{ $o['order_id']  }})"
+                                           class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">Tracking</a>
+                                        <a href="javascript:void(0)" onclick="sendMail({{ $o['order_id']  }})"
+                                           class="btn btn-primary btn-xs btn-rounded p-l-10 p-r-10">Send Mail</a>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
             <div class="row" style="margin-bottom: 10px;">
-                {{--                <div class="col-lg-5 col-md-5 col-sm-5">--}}
-                {{--                    Showing {{ $customers->firstItem() }} to {{ $customers->lastItem() }} of {{ $customers->total() }}--}}
-                {{--                    entries--}}
-                {{--                </div>--}}
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    Showing {{ $order_data->firstItem() }} to {{ $order_data->lastItem() }}
+                    of {{ $order_data->total() }}
+                    entries
+                </div>
 
-                {{--                <div class="col-xl-7 col-lg-7 text-right">--}}
-                {{--                    {{ $customers->render() }}--}}
-                {{--                </div>--}}
+                <div class="col-xl-7 col-lg-7 text-right">
+                    {{ $order_data->render() }}
+                </div>
             </div>
         </div>
     </div>
