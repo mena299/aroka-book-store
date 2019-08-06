@@ -7,6 +7,8 @@ Route::get('dashboard', 'cms\DashboardController@dashboard');
 Route::group(['prefix' => '/orders'], function () {
     Route::get('/list', 'cms\OrderController@index');
     Route::post('/upload', 'cms\OrderController@uploadWixOrder');
+    Route::post('/update-tracking', 'cms\OrderController@updateTracking');
+
 //    Route::post('/upload', 'cms\OrderController@uploadDSOTMPreOrder');
 });
 

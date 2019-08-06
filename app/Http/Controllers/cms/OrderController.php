@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\cms;
 
+use App\Http\Classes\BasicData;
 use App\Imports\OrderImport;
 use App\Model\Customer;
 use App\Model\Order;
@@ -444,6 +445,31 @@ class OrderController extends Controller
         return ['error' => $error];
     }
 
+    public function updateTracking(Request $request)
+    {
+        $order_id = $request->input('order_id');
+        $order = Order::whereId($order_id)->first();
+
+        if (!$order) {
+            abort(404);
+        }
+
+        try {
+            $transporter_data = BasicData::transporter();
+            $transporter = $request->input('transporter');
+
+            $order->tracking = $request->input('tracking') ?? null;
+            $order->transporter = $transporter <> 0 ? $transporter_data[$transporter] : null;
+            $order->updated_at = Carbon::now();
+            $order->save();
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
+        return redirect('cms/orders/list?status=success');
+
+    }
+
     public function index(Request $request)
     {
         $data = array();
@@ -465,7 +491,7 @@ class OrderController extends Controller
                 ->orWhere('customers.email', 'LIKE', "%$search%");
         }
 
-        $order_data = $order_data->orderBy('id', 'desc')->paginate(30);
+        $order_data = $order_data->orderBy('id', 'desc')->paginate(15);
 
 
         $orders = [];
@@ -476,13 +502,15 @@ class OrderController extends Controller
             $orders[$od->id]['old_order_id'] = $od->old_order_id;
             $orders[$od->id]['customer_name'] = $od->shipping_name;
             $orders[$od->id]['email'] = $od->email;
-            $orders[$od->id]['email'] = $od->phone_number;
+            $orders[$od->id]['phone_number'] = $od->phone_number;
             $orders[$od->id]['status'] = $od->status;
             $orders[$od->id]['shipping_type'] = $od->shipping_type;
             $orders[$od->id]['price'] = $od->net_price;
             $orders[$od->id]['is_preorder'] = $od->is_preorder;
             $orders[$od->id]['transporter'] = $od->transporter;
             $orders[$od->id]['tracking'] = $od->tracking;
+            $orders[$od->id]['transporter_id'] = isset($od->transporter) ? array_search($od->transporter, BasicData::transporter()) : 0;
+            $orders[$od->id]['shipping_date'] = isset($od->shipping_datetime) ? Carbon::parse($od->shipping_datetime)->toDateString() : null;
             $orders[$od->id]['products'][] = $od->title_th;
         }
 
@@ -493,10 +521,12 @@ class OrderController extends Controller
             }
         }
 
+
         $data = [
             'header' => $header,
             'orders' => $orders,
-            'order_data' => $order_data
+            'order_data' => $order_data,
+            'transporter' => BasicData::transporter()
         ];
 
         return view('cms.orders.index')->with($data);

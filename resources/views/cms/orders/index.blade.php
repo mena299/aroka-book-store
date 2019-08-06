@@ -62,6 +62,7 @@
                                     <td>{!! $o['old_order_id'] !!}</td>
                                     <td>{!! $o['customer_name'] !!}</td>
                                     <td>{!! $o['email'] !!}</td>
+                                    <td>{!! $o['phone_number'] !!}</td>
                                     <td>{!! $o['products'] !!}</td>
                                     <td>{!! $o['status'] !!}</td>
                                     <td>{!! $o['price'] !!}</td>
@@ -72,7 +73,8 @@
                                     <td>
                                         <a href="javascript:void(0)" onclick=""
                                            class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">View</a>
-                                        <a href="javascript:void(0)" onclick="updateTracking({{ $o['order_id']  }})"
+                                        <a href="javascript:void(0)"
+                                           onclick="updateTracking('{!! $o['order_id'] !!}','{!! $o['shipping_date'] !!}','{!! $o['tracking'] !!}','{!! $o['transporter_id'] !!}')"
                                            class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">Tracking</a>
                                         <a href="javascript:void(0)" onclick="sendMail({{ $o['order_id']  }})"
                                            class="btn btn-primary btn-xs btn-rounded p-l-10 p-r-10">Send Mail</a>
@@ -98,11 +100,65 @@
         </div>
     </div>
 
+    <div class="modal fade" id="tracking-modal" tabindex="-1" role="dialog" aria-labelledby="penname-modal-label"
+         aria-hidden="true">
+        <form action="{{ url('cms/orders/update-tracking') }}" method="POST"
+              id="vendor-form">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tracking-modal-title">Update Tracking</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            {{ csrf_field() }}
+                            <label for="tracking-label" class="col-form-label">Tracking :</label>
+
+                            <input type="text" class="form-control" id="tracking-label" name="tracking">
+                            <input type="hidden" class="form-control" id="order_id" name="order_id">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="shipping-date" class="col-form-label">Shipping Date :</label>
+
+                            <input type="date" class="form-control" id="shipping-date" name="shipping_date">
+                        </div>
+
+                        <label for="author" class="col-form-label">Transporter :</label>
+                        <select class="form-control " name="transporter" id="transporter">
+                            <option value="0">not select</option>
+                            @foreach($transporter as $key => $t)
+                                <option value="{!! $key !!}">{!! $t !!}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
 
 @endsection
 
 
 <script type="text/javascript">
+
+    function updateTracking(id, date, tracking, transporter) {
+        $('#tracking-modal').modal({});
+        $('#tracking-modal #tracking-modal-title').html("Update Tracking");
+        $('#tracking-modal #order_id').val(id);
+        $('#tracking-modal #shipping-date').val(date);
+        $('#tracking-modal #tracking-label').val(tracking);
+        $('#tracking-modal #transporter').val(transporter);
+    }
 
     function deleteProduct(id) {
         swal({
