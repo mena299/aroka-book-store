@@ -76,8 +76,12 @@
                                         <a href="javascript:void(0)"
                                            onclick="updateTracking('{!! $o['order_id'] !!}','{!! $o['shipping_date'] !!}','{!! $o['tracking'] !!}','{!! $o['transporter_id'] !!}')"
                                            class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">Tracking</a>
-                                        <a href="javascript:void(0)" onclick="sendMail('{{ $o['order_id']  }}','{!! $o['old_order_id'] !!}')"
-                                           class="btn btn-primary btn-xs btn-rounded p-l-10 p-r-10">Send Mail</a>
+
+                                        @if(isset($o['email']) && $o['email'] != 'arokawriter.contact@gmail.com')
+                                            <a href="javascript:void(0)"
+                                               onclick="sendMail('{{ $o['order_id']  }}','{!! $o['old_order_id'] !!}')"
+                                               class="btn btn-primary btn-xs btn-rounded p-l-10 p-r-10">Send Mail</a>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>

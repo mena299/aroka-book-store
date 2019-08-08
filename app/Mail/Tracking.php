@@ -30,7 +30,8 @@ class Tracking extends Mailable
      */
     public function build()
     {
+        $order_id = $this->meta['ecwid_order_id'];
         return $this->view('mail.tracking')
-            ->subject('testingggggg email');
+            ->subject('แจ้งหมายเลขพัสดุ Order #'.$order_id);
     }
 }

@@ -449,15 +449,57 @@ class OrderController extends Controller
 
     public function trackingSendMail(Request $request, $order_id)
     {
-        $customer_email = 'mena299.dev@gmail.com';
-        $meta = ['test', 'test2'];
+        $order_data = Order::where('orders.id', $order_id)
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('order_products', 'order_products.order_id', '=', 'orders.id')
+            ->leftJoin('products', 'products.id', '=', 'order_products.product_id')
+            ->select()
+            ->get();
+
+        $orders = [];
+        foreach ($order_data as $od) {
+
+            $orders['order_id'] = $od->id;
+            $orders['old_order_id'] = $od->old_order_id;
+            $orders['customer_name'] = $od->shipping_name;
+            $orders['email'] = $od->email;
+            $orders['phone_number'] = $od->phone_number;
+            $orders['status'] = $od->status;
+            $orders['shipping_type'] = $od->shipping_type;
+            $orders['price'] = $od->net_price;
+            $orders['is_preorder'] = $od->is_preorder;
+            $orders['transporter'] = $od->transporter;
+            $orders['staff_remark'] = $od->staff_remark;
+            $orders['tracking'] = $od->tracking;
+            $orders['transporter_id'] = isset($od->transporter) ? array_search($od->transporter, BasicData::transporter()) : 0;
+            $orders['shipping_date'] = isset($od->shipping_datetime) ? Carbon::parse($od->shipping_datetime)->toDateString() : null;
+            $orders['products'][] = $od->title_th;
+        }
+
+        $parcelLing = BasicData::checkParcelLink();
+
+        $meta = [
+            'book_name' => collect($orders['products'])->join(',') ?? null,
+            'ecwid_order_id' => isset($orders['old_order_id']) ? Str::after($orders['old_order_id'], 'ecwid_') : null,
+            'date_of_shipping' => $orders['shipping_date'] ?? null,
+            'box_amount' => 1,
+            'transporter' => $orders['transporter'] ?? null,
+            'shipping_type' => $orders['shipping_type'] ?? null,
+            'tracking_number' => $orders['tracking'] ?? null,
+            'remark' => $orders['staff_remark'] ?? null,
+            'check_link' => $parcelLing[$orders['transporter']] ?? null,
+        ];
 
         try {
-            Mail::to($customer_email)->send(new Tracking($meta));
+            if (isset($orders['email'])) {
+                Mail::to($orders['email'])->send(new Tracking($meta));
+            }
+
+            return redirect('cms/orders/list');
         } catch (\Exception $e) {
             throw $e;
         }
-        return $customer_email;
+        return ['status' => false, 'meta_data' => $meta];
     }
 
     public function updateTracking(Request $request)
