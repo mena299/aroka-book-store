@@ -76,7 +76,7 @@
                                         <a href="javascript:void(0)"
                                            onclick="updateTracking('{!! $o['order_id'] !!}','{!! $o['shipping_date'] !!}','{!! $o['tracking'] !!}','{!! $o['transporter_id'] !!}')"
                                            class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">Tracking</a>
-                                        <a href="javascript:void(0)" onclick="sendMail({{ $o['order_id']  }})"
+                                        <a href="javascript:void(0)" onclick="sendMail('{{ $o['order_id']  }}','{!! $o['old_order_id'] !!}')"
                                            class="btn btn-primary btn-xs btn-rounded p-l-10 p-r-10">Send Mail</a>
                                 </tr>
                             @endforeach
@@ -160,17 +160,17 @@
         $('#tracking-modal #transporter').val(transporter);
     }
 
-    function deleteProduct(id) {
+    function sendMail(order_id, wix_order_id) {
         swal({
             title: 'Are you sure?',
-            text: "Would you like to delete this Product?",
+            text: "Send Mail Tracking To Order " + wix_order_id + " ?",
             buttons: {
                 cancel: "Close",
                 confirm: 'Confirm',
             },
         }).then((result) => {
             if (result) {
-                window.location.href = "/cms/products/delete/" + id;
+                window.location.href = "/cms/orders/tracking-sendmail/" + order_id;
             }
         });
     }

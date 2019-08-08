@@ -4,6 +4,7 @@ namespace App\Http\Controllers\cms;
 
 use App\Http\Classes\BasicData;
 use App\Imports\OrderImport;
+use App\Mail\Tracking;
 use App\Model\Customer;
 use App\Model\Order;
 use App\Model\OrderProduct;
@@ -12,6 +13,7 @@ use App\Model\Product as Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -443,6 +445,19 @@ class OrderController extends Controller
         }
 
         return ['error' => $error];
+    }
+
+    public function trackingSendMail(Request $request, $order_id)
+    {
+        $customer_email = 'mena299.dev@gmail.com';
+        $meta = ['test', 'test2'];
+
+        try {
+            Mail::to($customer_email)->send(new Tracking($meta));
+        } catch (\Exception $e) {
+            throw $e;
+        }
+        return $customer_email;
     }
 
     public function updateTracking(Request $request)
