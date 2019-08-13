@@ -476,7 +476,12 @@ class OrderController extends Controller
             $orders['products'][] = $od->title_th;
         }
 
-        $parcelLing = BasicData::checkParcelLink();
+        $parcelLink = BasicData::checkParcelLink();
+        $link = $parcelLink[$orders['transporter']] ?? null;
+
+        if ($orders['transporter'] == 'kerry') {
+            $link = $link . '?track=' . $orders['tracking'];
+        }
 
         $meta = [
             'book_name' => collect($orders['products'])->join(',') ?? null,
@@ -487,7 +492,7 @@ class OrderController extends Controller
             'shipping_type' => $orders['shipping_type'] ?? null,
             'tracking_number' => $orders['tracking'] ?? null,
             'remark' => $orders['staff_remark'] ?? null,
-            'check_link' => $parcelLing[$orders['transporter']] ?? null,
+            'check_link' => $link
         ];
 
         try {

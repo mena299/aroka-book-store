@@ -77,7 +77,7 @@
                                            onclick="updateTracking('{!! $o['order_id'] !!}','{!! $o['shipping_date'] !!}','{!! $o['tracking'] !!}','{!! $o['transporter_id'] !!}')"
                                            class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">Tracking</a>
 
-                                        @if(isset($o['email']) && $o['email'] != 'arokawriter.contact@gmail.com')
+                                        @if(isset($o['email']) && $o['email'] != 'arokawriter.contact@gmail.com' && isset($o['tracking']))
                                             <a href="javascript:void(0)"
                                                onclick="sendMail('{{ $o['order_id']  }}','{!! $o['old_order_id'] !!}')"
                                                class="btn btn-primary btn-xs btn-rounded p-l-10 p-r-10">Send Mail</a>

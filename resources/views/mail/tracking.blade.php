@@ -8,4 +8,4 @@
 @if(isset($meta['remark']))
     หมายเหตุ : {!! $meta['remark'] !!} <br>
 @endif
-ตรวจสอบการจัดส่ง : {!! $meta['check_link'] !!} <br>
+ตรวจสอบการจัดส่ง : <a href="{!! $meta['check_link'] !!}">{!! $meta['check_link'] !!}</a> <br>
