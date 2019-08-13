@@ -41,6 +41,9 @@
                                 <tr>
                                     <td>{!! $author->id !!}</td>
                                     <td>{!! $author->name !!}</td>
+                                    <td>{!! \Illuminate\Support\Str::replaceLast(',','<br>',$author->email) !!}</td>
+                                    <td>{!! $author->phone_number !!}</td>
+                                    <td>{!! $author->bank_name !!} : {!! $author->bank_account !!}</td>
                                     <td>
                                         <a href="javascript:void(0)"
                                            onclick="editAuthor('{!! $author->id !!}','{!! $author->name !!}','{!! $author->bank_name !!}','{!! $author->bank_account !!}','{!! $author->phone_number !!}','{!! $author->email !!}')"

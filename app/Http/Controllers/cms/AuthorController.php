@@ -21,7 +21,7 @@ class AuthorController extends Controller
         }
 
         try {
-            AuthorPenname::where('author_id',$id)->delete();
+            AuthorPenname::where('author_id', $id)->delete();
             Author::whereId($id)->delete();
 
         } catch (\Exception $e) {
@@ -69,8 +69,8 @@ class AuthorController extends Controller
 
     public function index(Request $request)
     {
-        $author = Author::select('id', 'name', 'bank_name', 'bank_account','phone_number','email')->paginate(30);
-        $header = ['id', 'author', 'Precess'];
+        $author = Author::select('id', 'name', 'bank_name', 'bank_account', 'phone_number', 'email')->paginate(30);
+        $header = ['id', 'author', 'email', 'phone', 'bank', 'Precess'];
 
         $data = [
             'header' => $header,
