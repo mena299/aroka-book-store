@@ -166,7 +166,7 @@ class OrderController extends Controller
                         $order['transporter'] = Str::lower($csv_order);
                         break;
                     case 18 :
-                        $order['date_of_shipping'] = isset($csv_order) ? Carbon::parse($csv_order)->toDateString() : null;
+                        $order['date_of_shipping'] = isset($csv_order) ? Carbon::createFromFormat('d/m/Y', $csv_order)->toDateString() : null;
                         break;
                     case 19 :
                         $order['tracking_no'] = $csv_order;
@@ -185,7 +185,7 @@ class OrderController extends Controller
             $order = null;
         }
 
-        //  return $orders;
+//          return $orders;
 
         $error = [];
         \DB::beginTransaction();
@@ -251,10 +251,10 @@ class OrderController extends Controller
             throw  $e;
         }
 
+        if (count($error) == 0) {
+            return redirect('cms/orders/list?status=success');
+        }
         return ['error' => $error];
-
-
-        return $orders;
     }
 
     public function uploadDSOTMPreOrder(Request $request)

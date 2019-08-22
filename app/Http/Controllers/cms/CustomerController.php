@@ -70,7 +70,7 @@ class CustomerController extends Controller
 
         $search = $request->has('search') ? $request->input('search') : null;
         $header = ['ID', 'Name', 'Email', 'Phone','Remark', 'Precess'];
-        $customers = Customer::orderBy('id', 'ASC');
+        $customers = Customer::orderBy('id', 'DESC');
 
         if ($search !== null) {
             $customers = $customers->where('name', 'LIKE', "%$search%")
