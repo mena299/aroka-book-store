@@ -152,7 +152,12 @@ class OrderController extends Controller
 
                         foreach ($products as $skuqty) {
                             $sku = Str::before($skuqty, '_qty_');
-                            $product_data = Product::where('sku', $sku)->first();
+                            $product_data = Product::where('sku', $sku)->select('id','price')->first();
+
+                            if(!$product_data){
+                                return "SKU $sku not found";
+                            }
+
                             $order['products']['product_id'][] = $product_data->id;
                             $order['products']['price'][] = $product_data->price;
                             $order['products']['qty'][] = Str::after($skuqty, '_qty_');
@@ -479,7 +484,7 @@ class OrderController extends Controller
         $parcelLink = BasicData::checkParcelLink();
         $link = $parcelLink[$orders['transporter']] ?? null;
 
-        if ($orders['transporter'] == 'kerry') {
+        if (Str::lower($orders['transporter']) == 'kerry') {
             $link = $link . '?track=' . $orders['tracking'];
         }
 

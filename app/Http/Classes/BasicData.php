@@ -15,7 +15,8 @@ class BasicData
     {
         return $link = [
             'thai post' => 'http://track.thailandpost.co.th/tracking/default.aspx',
-            'kerry' => 'https://th.kerryexpress.com/th/track/'
+            'kerry' => 'https://th.kerryexpress.com/th/track/',
+            'flash' => 'https://www.flashexpress.co.th/tracking/'
         ];
     }
 
