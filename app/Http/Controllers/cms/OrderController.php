@@ -152,9 +152,9 @@ class OrderController extends Controller
 
                         foreach ($products as $skuqty) {
                             $sku = Str::before($skuqty, '_qty_');
-                            $product_data = Product::where('sku', $sku)->select('id','price')->first();
+                            $product_data = Product::where('sku', $sku)->select('id', 'price')->first();
 
-                            if(!$product_data){
+                            if (!$product_data) {
                                 return "SKU $sku not found";
                             }
 
@@ -450,6 +450,12 @@ class OrderController extends Controller
         }
 
         return ['error' => $error];
+    }
+
+    public function viewOrder($order_id)
+    {
+        $data = ['order_id' => $order_id];
+        return view('cms.orders.detail')->with($data);
     }
 
     public function trackingSendMail(Request $request, $order_id)

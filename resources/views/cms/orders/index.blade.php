@@ -71,7 +71,7 @@
                                     <td>{!! $o['tracking'] !!}</td>
                                     <td>{!! $o['transporter'] !!}</td>
                                     <td>
-                                        <a href="javascript:void(0)" onclick=""
+                                        <a href="{{url('cms/orders/detail/'.$o['order_id'])}}"
                                            class="btn btn-info btn-xs btn-rounded p-l-10 p-r-10">View</a>
                                         <a href="javascript:void(0)"
                                            onclick="updateTracking('{!! $o['order_id'] !!}','{!! $o['shipping_date'] !!}','{!! $o['tracking'] !!}','{!! $o['transporter_id'] !!}')"

@@ -8,7 +8,7 @@ class BasicData
 {
     public static function transporter()
     {
-        return $transporter = [1 => 'thai post', 2 => 'kerry'];
+        return $transporter = [1 => 'thai post', 2 => 'kerry', 3 => 'flash'];
     }
 
     public static function checkParcelLink()
