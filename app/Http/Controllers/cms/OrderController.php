@@ -104,7 +104,7 @@ class OrderController extends Controller
                             $sns = explode('tw@', $csv_order);
                             $customer = null;
 
-                            if (isset($sns[0]) == 'tw@') {
+                            if (isset($sns[0])  && $sns[0] == 'tw@') {
                                 $order['customer_phone_number'] = $csv_order;
                                 $customer = Customer::where('twitter', 'LIKE', "%$sns[1]%")->first();
                             }
