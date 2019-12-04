@@ -62,7 +62,7 @@ class OrderController extends Controller
             foreach ($csv_orders as $keyOrder => $csv_order) {
                 switch ($keyOrder) {
                     case 0 :
-                        $order['order_date'] = Carbon::parse($csv_order)->toDateTimeString();
+                        $order['order_date'] = Carbon::createFromFormat('d/m/Y H:i:s',$csv_order)->toDateTimeString();
                         break;
 //                case 1 :
 //                    $order['order_no'] = $csv_orders;
@@ -101,12 +101,15 @@ class OrderController extends Controller
 
                         if (isset($csv_order)) {
 
-                            $sns = explode('tw@', $csv_order);
+                            $sns = explode('@', $csv_order);
                             $customer = null;
 
-                            if (isset($sns[0])  && $sns[0] == 'tw@') {
+                            if (isset($sns[0])  && $sns[0] == 'tw') {
                                 $order['customer_phone_number'] = $csv_order;
                                 $customer = Customer::where('twitter', 'LIKE', "%$sns[1]%")->first();
+                            }elseif (isset($sns[0])  && $sns[0] == 'fb') {
+                                $order['customer_phone_number'] = $csv_order;
+                                $customer = Customer::where('facebook', 'LIKE', "%$sns[1]%")->first();
                             }
 
                             if ($customer !== null) {
@@ -131,8 +134,7 @@ class OrderController extends Controller
                         $order['bank'] = $csv_order;
                         break;
                     case 10 :
-                        $date = explode('  ', $csv_order);
-                        $order['transfer_date'] = Carbon::createFromFormat('d/m/Y', $date[0])->toDateString() . ' ' . Carbon::parse($date[1])->toTimeString();
+                        $order['transfer_date'] = Carbon::createFromFormat('d/m/Y H:i:s',$csv_order)->toDateTimeString();
 
                         break;
                     case 11 :
